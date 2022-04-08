@@ -1,4 +1,4 @@
-import { removeAuthenticationToken } from '../../lib/State';
+import { removeAuthenticationToken } from '../../lib/localStorage';
 
 export const logout = () => {
   removeAuthenticationToken();

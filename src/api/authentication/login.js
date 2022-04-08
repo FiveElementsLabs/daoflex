@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import ApolloClient from '../../lib/apolloClient';
-import { checkJwtExpiration, prettyJSON } from '../../lib/Helpers';
-import { getAuthenticationToken, setAuthenticationToken } from '../../lib/State';
+import { checkJwtExpiration, prettyJSON } from '../../lib/helpers';
+import { getAuthenticationToken, setAuthenticationToken } from '../../lib/localStorage';
 
 const GET_CHALLENGE = `
   query($request: ChallengeRequest!) {
