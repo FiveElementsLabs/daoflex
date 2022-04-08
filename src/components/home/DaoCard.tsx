@@ -1,4 +1,4 @@
-import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Image, Text, useColorModeValue } from '@chakra-ui/react';
 
 type Tdao = {
   id: number;
@@ -28,10 +28,13 @@ export default function DaoCard({ dao }: { dao: Tdao }) {
       <Text fontSize='xl' fontWeight='bold'>
         {dao.name}
       </Text>
-      <Text fontSize='lg' fontWeight='medium' mt={2} opacity='0.8'>
+      <Text fontSize='md' fontWeight='medium' mt={2} opacity='0.8'>
         {/* //TODO: better number mapping function */}
         {Math.floor(dao.members / 1000)}K members
       </Text>
+      <Button mt={6} rounded='3xl'>
+        Subscribe
+      </Button>
     </Box>
   );
 }

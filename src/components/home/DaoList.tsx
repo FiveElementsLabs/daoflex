@@ -1,5 +1,4 @@
 import { SimpleGrid } from '@chakra-ui/react';
-
 import DaoCard from './DaoCard';
 
 export default function DaoList() {
