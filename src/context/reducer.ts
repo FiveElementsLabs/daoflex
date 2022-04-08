@@ -6,22 +6,16 @@ type action = {
 };
 
 export const initialState = {
-  profile: null,
+  current_profile: null,
   all_profiles: [],
 };
 
 export const reducer = (state: typeof initialState, action: action) => {
   switch (action.type) {
-    case actions.lens.LOGIN:
+    case actions.lens.SET_CURRENT_PROFILE:
       return {
         ...state,
-        profile: action.payload,
-      };
-
-    case actions.lens.LOGOUT:
-      return {
-        ...state,
-        profile: null,
+        current_profile: action.payload,
       };
 
     case actions.lens.SET_ALL_PROFILES:
