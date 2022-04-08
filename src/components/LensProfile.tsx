@@ -1,4 +1,4 @@
-import { Button, Menu, MenuButton, MenuList, MenuItem, Avatar } from '@chakra-ui/react';
+import { Button, Menu, MenuButton, MenuList, MenuItem, Avatar, Flex, Text } from '@chakra-ui/react';
 import { CaretDown } from 'phosphor-react';
 import { useSharedState } from '../context/store';
 import { useChangeProfile } from '../hooks/useChangeProfile';
@@ -13,9 +13,11 @@ export default function LensProfile(props: any) {
       {all_profiles?.length ? (
         <Menu>
           <MenuButton as={Button} {...props}>
-            <Avatar size='xs' src={current_profile?.picture?.url} name={current_profile?.handle} />
-            {current_profile?.handle}
-            <CaretDown />
+            <Flex alignItems='center'>
+              <Avatar size='xs' src={current_profile?.picture?.url} name={current_profile?.handle} />
+              <Text mx={2}>{current_profile?.handle}</Text>
+              <CaretDown />
+            </Flex>
           </MenuButton>
           <MenuList>
             {all_profiles?.map((profile: any, idx: number) => (
