@@ -4,7 +4,7 @@ import config from '../app.config';
 const dAppConfig = {
   readOnlyChainId: Mumbai.chainId,
   readOnlyUrls: {
-    [Mumbai.chainId]: config.web3.rpc || 'https://rpc-mumbai.matic.today',
+    [Mumbai.chainId]: config.web3.rpcUrl || 'https://rpc-mumbai.matic.today',
   },
   notifications: {
     expirationPeriod: 3000,
