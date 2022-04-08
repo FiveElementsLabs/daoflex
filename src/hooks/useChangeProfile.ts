@@ -2,7 +2,7 @@ import { useSharedState } from '../context/store';
 import actions from '../context/actions';
 
 export const useChangeProfile = () => {
-  const [dispatch] = useSharedState();
+  const [_, dispatch] = useSharedState();
 
   const changeProfile = (profile: any) => {
     dispatch({

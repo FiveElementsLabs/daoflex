@@ -7,7 +7,7 @@ import actions from '../context/actions';
 
 export const useLoadProfiles = () => {
   const { account, library } = useEthers();
-  const [dispatch] = useSharedState();
+  const [_, dispatch] = useSharedState();
 
   useEffect(() => {
     if (account && library) {
@@ -28,5 +28,5 @@ export const useLoadProfiles = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [account]);
 };
