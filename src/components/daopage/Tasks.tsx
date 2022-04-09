@@ -1,31 +1,41 @@
 import { Box, Checkbox, HStack, Text, useColorModeValue } from '@chakra-ui/react';
+import { useSharedState } from '../../context/store';
 
 export default function Tasks({ dao }: { dao: any }) {
-  return (
-    <Box
-      px={4}
-      py={8}
-      rounded='xl'
-      shadow='sm'
-      borderWidth='1px'
-      textAlign='center'
-      w='full'
-      borderColor={useColorModeValue('gray.300', 'gray.700')}
-      _hover={{ borderColor: useColorModeValue('gray.400', 'gray.600') }}
-      transition='all 0.1s ease-in-out'
-    >
-      <Text fontSize='xl' fontWeight='bold' mb={4}>
-        Tasks available
-      </Text>
+  const [{ task_lists }] = useSharedState();
 
-      {list.map(task => (
-        <Task key={task.id} task={task} dao={dao} />
-      ))}
-    </Box>
+  const borderColor = useColorModeValue('gray.300', 'gray.700');
+  const hoverBorderColor = useColorModeValue('gray.400', 'gray.600');
+
+  return (
+    <>
+      {task_lists && (
+        <Box
+          px={4}
+          py={8}
+          rounded='xl'
+          shadow='sm'
+          borderWidth='1px'
+          textAlign='center'
+          w='full'
+          borderColor={borderColor}
+          _hover={{ borderColor: hoverBorderColor }}
+          transition='all 0.1s ease-in-out'
+        >
+          <Text fontSize='xl' fontWeight='bold' mb={4}>
+            Tasks available
+          </Text>
+
+          {task_lists[dao.id].map((task: any) => (
+            <Task key={task.id} task={task} />
+          ))}
+        </Box>
+      )}
+    </>
   );
 }
 
-function Task({ task, dao }: { task: any; dao: any }) {
+function Task({ task }: { task: any }) {
   return (
     <Box
       p={2}
@@ -52,34 +62,3 @@ function Task({ task, dao }: { task: any; dao: any }) {
     </Box>
   );
 }
-
-const list = [
-  {
-    id: 1,
-    title: 'Like us on Twitter 🥰',
-    link: 'https://twitter.com/ens_dao',
-    status: 0,
-    reward: 100,
-  },
-  {
-    id: 2,
-    title: 'Follow us on Instagram 📸',
-    link: 'https://www.instagram.com/ens_dao/',
-    status: 0,
-    reward: 100,
-  },
-  {
-    id: 3,
-    title: 'Follow us on Medium 📖',
-    link: 'https://medium.com/ens-dao',
-    status: 0,
-    reward: 50,
-  },
-  {
-    id: 4,
-    title: 'Star us on Github 💎',
-    link: 'https://github.com/ens-dao',
-    status: 0,
-    reward: 200,
-  },
-];
