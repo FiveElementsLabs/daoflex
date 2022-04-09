@@ -18,20 +18,21 @@ async function mintAndHello() {
     const provider = new hardhat.ethers.providers.JsonRpcProvider(url);
     //const provider = new ethers.providers.AlchemyProvider('rinkeby');
 
-    const wallet = new hardhat.ethers.Wallet('09975ab60c1aa253c72784dc1f143ad26761c02c9b904a8a9241ac78804fc3ad');
+    const wallet = new hardhat.ethers.Wallet('09975ab60c1aa253c72784dc1f143ad26761c02c9b904a8a9241ac78804fc3ad'); //private key of our wallet
     const signer = wallet.connect(provider);
 
     const zeroAddress = '0x0000000000000000000000000000000000000000';
     const helloAddress = await deploy();
 
     const lock = new hardhat.ethers.Contract(
-      '0xa55F8Ba16C5Bb580967f7dD94f927B21d0acF86c',
+      '0x2516b4791dc7Aa10e3eB92539B0cC1316802B14C', //address of the lock contract
       abis.PublicLockV8.abi,
       signer
     );
 
-    console.log(await provider.getCode('0xa55F8Ba16C5Bb580967f7dD94f927B21d0acF86c'));
+    //console.log(await provider.getCode('0xa55F8Ba16C5Bb580967f7dD94f927B21d0acF86c'));
 
+    console.log(await lock.keyPrice());
     let amount = await lock.keyPrice();
 
     // Purchase params:
@@ -54,9 +55,9 @@ async function mintAndHello() {
     //const gasEstimate = await lock.estimateGas.purchase(...purchaseParams, options);
     // options.gasLimit = gasEstimate;
 
-    //await lock.connect(signer).setEventHooks(helloAddress, zeroAddress, { gasLimit: 6700000 });
+    //await lock.setEventHooks(helloAddress, zeroAddress, { gasLimit: 6700000 });
 
-    const receipt = await lock.connect(signer).purchase(...purchaseParams, options);
+    const receipt = await lock.purchase(...purchaseParams, options);
     console.log(await receipt.wait());
   } catch (error) {
     console.error(error);
