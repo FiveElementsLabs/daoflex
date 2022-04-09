@@ -7,8 +7,15 @@ const config = {
     discord: 'https://discord.gg/random',
   },
   web3: {
-    rpcUrl: 'https://rpc-mumbai.matic.today',
-    explorer: 'https://mumbai.polygonscan.com/',
+    chain_name: 'rinkeby',
+    chain_id: 4,
+    native_currency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpc_url: 'https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    block_explorer: 'https://rinkeby.etherscan.io/',
   },
 };
 

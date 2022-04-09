@@ -1,18 +1,20 @@
 import { Button } from '@chakra-ui/react';
-import { useEthers, shortenAddress, useLookupAddress } from '@usedapp/core';
+import { useSharedState } from '../context/store';
+import { useWallet } from '../hooks/useWallet';
+import { shortenAddress } from '../lib/helpers';
 
 export default function Connect(props: any) {
-  const { activateBrowserWallet, account, deactivate } = useEthers();
-  const ens = useLookupAddress();
+  const [{ account }] = useSharedState();
+  const { loginWallet, logoutWallet } = useWallet();
 
   return (
     <>
       {account ? (
-        <Button onClick={deactivate} {...props}>
-          {ens ?? shortenAddress(account)}
+        <Button onClick={logoutWallet} {...props}>
+          {shortenAddress(account)}
         </Button>
       ) : (
-        <Button onClick={activateBrowserWallet} {...props}>
+        <Button onClick={loginWallet} {...props}>
           Connect Wallet
         </Button>
       )}
