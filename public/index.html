@@ -22,6 +22,36 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Daohacks</title>
+    <script>
+      (function (d, s) {
+        var js = d.createElement(s),
+          sc = d.getElementsByTagName(s)[0];
+        js.src = 'https://paywall.unlock-protocol.com/static/unlock.latest.min.js';
+        sc.parentNode.insertBefore(js, sc);
+      })(document, 'script');
+    </script>
+    <script>
+      var unlockProtocolConfig = {
+        pessimistic: true,
+        locks: {
+          '0x9F55084003F8eF7002aC8419B4fdCE6FBd360247': {
+            network: 4,
+            name: 'DaoLock',
+          },
+        },
+        icon: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.10UUFNA8oLdFdDpzt-Em_QHaHa%26pid%3DApi&f=1',
+        callToAction: {
+          default: 'Please join the DAO Membership',
+        },
+        metadataInputs: [
+          {
+            name: 'Name',
+            type: 'text',
+            required: true,
+          },
+        ],
+      };
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
