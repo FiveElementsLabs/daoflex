@@ -1,8 +1,8 @@
 const config = {
-  appName: 'Daohacks',
-  appDescription: 'Daohacks dev repo',
+  appName: 'DAOflex',
+  appDescription: 'Boost your DAO with DAOflex',
   socials: {
-    github: 'https://github.com/FiveElementsLabs/daohacks',
+    github: 'https://github.com/FiveElementsLabs/daoflex',
     twitter: 'https://twitter.com/FiveElementsLabs',
     discord: 'https://discord.gg/random',
   },
