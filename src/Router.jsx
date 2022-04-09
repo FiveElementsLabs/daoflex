@@ -15,9 +15,7 @@ export default function Router() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-          </Route>
-          <Route path='/:daoname' element={<Layout />}>
-            <Route index element={<DaoPage />} />
+            <Route path='/:daoname' element={<DaoPage />} />
           </Route>
         </Routes>
       </Wrapper>
