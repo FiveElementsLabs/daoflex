@@ -60,14 +60,7 @@ export const useWallet = () => {
         position: 'bottom-right',
       });
     } catch (err) {
-      console.log(err);
-      toast({
-        title: 'Error',
-        description: 'Please install Metamask',
-        status: 'error',
-        duration: 5000,
-        position: 'bottom-right',
-      });
+      console.error(err);
     }
   };
 

@@ -11,6 +11,8 @@ export const initialState = {
   provider: null,
   network: null,
   eth_balance: null,
+  dao_list: null,
+  loading: false,
 };
 
 export const reducer = (state: typeof initialState, action: action) => {
@@ -33,6 +35,12 @@ export const reducer = (state: typeof initialState, action: action) => {
         provider: null,
         network: null,
         eth_balance: null,
+      };
+
+    case actions.SET_DAO_LIST:
+      return {
+        ...state,
+        dao_list: action.payload,
       };
 
     default:
