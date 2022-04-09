@@ -3,6 +3,7 @@ import config from '../../app.config';
 
 import Connect from '../Connect';
 import ColorModeSwitcher from '../ColorModeSwitcher';
+import LensProfile from '../LensProfile';
 
 export default function Navbar() {
   return (
@@ -12,6 +13,7 @@ export default function Navbar() {
       </Text>
       <div>
         <ColorModeSwitcher mr={2} />
+        <LensProfile mr={2} />
         <Connect colorScheme='blue'>Connect Wallet</Connect>
       </div>
     </Flex>

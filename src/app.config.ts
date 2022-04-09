@@ -7,7 +7,13 @@ const config = {
     discord: 'https://discord.gg/random',
   },
   web3: {
-    rpc: 'https://rpc-mumbai.matic.today',
+    rpcUrl: 'https://rpc-mumbai.matic.today',
+    explorer: 'https://mumbai.polygonscan.com/',
+  },
+  lens: {
+    apiUrl: 'https://api-mumbai.lens.dev/',
+    publicationMetadataVersion: '1.0.0',
+    appId: 'testing-daohacks',
   },
 };
 

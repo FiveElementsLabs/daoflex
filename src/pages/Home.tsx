@@ -1,9 +1,9 @@
-import { Box } from '@chakra-ui/react';
+import DaoList from '../components/home/DaoList';
 
 export default function Home() {
   return (
-    <Box>
-      <h1>Home</h1>
-    </Box>
+    <>
+      <DaoList />
+    </>
   );
 }

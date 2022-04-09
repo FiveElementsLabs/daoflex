@@ -6,15 +6,22 @@ type action = {
 };
 
 export const initialState = {
-  count: 0,
+  current_profile: null,
+  all_profiles: [],
 };
 
 export const reducer = (state: typeof initialState, action: action) => {
   switch (action.type) {
-    case actions.INCREMENT:
+    case actions.lens.SET_CURRENT_PROFILE:
       return {
         ...state,
-        count: state.count + action.payload,
+        current_profile: action.payload,
+      };
+
+    case actions.lens.SET_ALL_PROFILES:
+      return {
+        ...state,
+        all_profiles: action.payload,
       };
 
     default:
