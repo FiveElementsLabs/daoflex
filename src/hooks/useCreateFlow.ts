@@ -17,6 +17,8 @@ export function useCreateNewFlow() {
 
     try {
       if (signer) {
+        console.log('flowrate', flowRate);
+
         const createFlowOperation = sf.cfaV1.createFlow({
           flowRate: flowRate,
           receiver: recipient,
