@@ -1,15 +1,9 @@
-import { Box, Button, Image, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import { Box, Button, Image, Text, useColorModeValue } from '@chakra-ui/react';
 
-type Tdao = {
-  id: number;
-  name: string;
-  members: number;
-  image: string;
-};
-
-export default function DaoCard({ dao }: { dao: Tdao }) {
+export default function DaoCard({ dao }: { dao: any }) {
   return (
-    <Link href={dao.name}>
+    <Link to={dao.name}>
       <Box
         px={4}
         py={8}
@@ -18,8 +12,8 @@ export default function DaoCard({ dao }: { dao: Tdao }) {
         borderWidth='1px'
         textAlign='center'
         w='full'
-        borderColor={useColorModeValue('gray.100', 'gray.700')}
-        _hover={{ borderColor: useColorModeValue('gray.200', 'gray.600') }}
+        borderColor={useColorModeValue('gray.300', 'gray.700')}
+        _hover={{ borderColor: useColorModeValue('gray.400', 'gray.600') }}
         transition='all 0.1s ease-in-out'
         cursor='pointer'
       >
@@ -34,11 +28,9 @@ export default function DaoCard({ dao }: { dao: Tdao }) {
           {Math.floor(dao.members / 1000)}K members
         </Text>
 
-        <Link href={dao.name}>
-          <Button mt={6} rounded='3xl'>
-            Join
-          </Button>
-        </Link>
+        <Button mt={6} rounded='3xl'>
+          Join
+        </Button>
       </Box>
     </Link>
   );

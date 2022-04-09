@@ -1,6 +1,6 @@
 import { Box, Button, Link, Text, useColorModeValue } from '@chakra-ui/react';
 
-export default function Content({ dao }: { dao: any }) {
+export default function Leaderboard({ dao }: { dao: any }) {
   return (
     <Box
       px={4}
@@ -16,7 +16,7 @@ export default function Content({ dao }: { dao: any }) {
       cursor='pointer'
     >
       <Text fontSize='xl' fontWeight='bold'>
-        Content
+        Leaderboard
       </Text>
 
       <Link>
