@@ -6,22 +6,34 @@ type action = {
 };
 
 export const initialState = {
-  count: 0,
+  is_connected: false,
+  account: '',
+  provider: null,
+  network: null,
+  eth_balance: null,
 };
 
 export const reducer = (state: typeof initialState, action: action) => {
   switch (action.type) {
-    // case actions.lens.SET_CURRENT_PROFILE:
-    //   return {
-    //     ...state,
-    //     current_profile: action.payload,
-    //   };
+    case actions.LOGIN_WALLET:
+      window.localStorage.setItem('shouldConnectMetamask', 'true');
+      return {
+        ...state,
+        is_connected: true,
+        account: action.payload.account,
+        provider: action.payload.provider,
+      };
 
-    // case actions.lens.SET_ALL_PROFILES:
-    //   return {
-    //     ...state,
-    //     all_profiles: action.payload,
-    //   };
+    case actions.LOGOUT_WALLET:
+      window.localStorage.removeItem('shouldConnectMetamask');
+      return {
+        ...state,
+        is_connected: false,
+        account: '',
+        provider: null,
+        network: null,
+        eth_balance: null,
+      };
 
     default:
       return state;
