@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Grid, Text, useColorModeValue, VStack } from '@chakra-ui/react';
-import { Sparkle, Chats } from 'phosphor-react';
+import { Box, Button, Flex, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import { Sparkle, Chats, Coins, YoutubeLogo, Image } from 'phosphor-react';
 import { useDistribute } from '../../hooks/useDistribute';
 import { useCreateNewFlow } from '../../hooks/useCreateFlow';
 import { useLoading } from '../../hooks/useLoading';
@@ -43,12 +43,12 @@ export default function Subscribe({ dao }: { dao: any }) {
         </Flex>
       </Button>
 
-      <Box p={4} mt={6}>
+      <Box p={4} mt={6} display='grid' placeContent='center'>
         <Text fontWeight='medium'>Based on your contribution level, benefits include: </Text>
         <Flex gap={4} mt={4}>
           <Box
-            w='160px'
-            h='100px'
+            w='120px'
+            h='90px'
             display='grid'
             placeContent='center'
             bg={useColorModeValue('gray.200', 'gray.700')}
@@ -62,45 +62,45 @@ export default function Subscribe({ dao }: { dao: any }) {
             </VStack>
           </Box>
           <Box
-            w='160px'
-            h='100px'
+            w='120px'
+            h='90px'
             display='grid'
             placeContent='center'
             bg={useColorModeValue('gray.200', 'gray.700')}
             rounded='md'
           >
             <VStack>
-              <Chats size={32} />
+              <Image size={32} />
               <Text fontSize='md' fontWeight='medium'>
                 NFTs
               </Text>
             </VStack>
           </Box>
           <Box
-            w='160px'
-            h='100px'
+            w='120px'
+            h='90px'
             display='grid'
             placeContent='center'
             bg={useColorModeValue('gray.200', 'gray.700')}
             rounded='md'
           >
             <VStack>
-              <Chats size={32} />
+              <YoutubeLogo size={32} />
               <Text fontSize='md' fontWeight='medium'>
                 Media
               </Text>
             </VStack>
           </Box>
           <Box
-            w='160px'
-            h='100px'
+            w='120px'
+            h='90px'
             display='grid'
             placeContent='center'
             bg={useColorModeValue('gray.200', 'gray.700')}
             rounded='md'
           >
             <VStack>
-              <Chats size={32} />
+              <Coins size={32} />
               <Text fontSize='md' fontWeight='medium'>
                 Whitelists
               </Text>
@@ -108,7 +108,7 @@ export default function Subscribe({ dao }: { dao: any }) {
           </Box>
         </Flex>
       </Box>
-      <Text fontWeight='medium'>And much more...</Text>
+      <Text fontWeight='medium'>And much more!</Text>
     </Box>
   );
 }
