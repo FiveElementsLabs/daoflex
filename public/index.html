@@ -22,6 +22,31 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Daohacks</title>
+    <!-- Unlock snippet -->
+    <script>
+      (function (d, s) {
+        var js = d.createElement(s),
+          sc = d.getElementsByTagName(s)[0];
+        js.src = 'https://paywall.unlock-protocol.com/static/unlock.1.0.min.js';
+        sc.parentNode.insertBefore(js, sc);
+      })(document, 'script');
+    </script>
+
+    <!-- Unlock Configuration -->
+    <script>
+      var unlockProtocolConfig = {
+        network: 4,
+        locks: {
+          '0x7dBE952daE987eB77D43ae1a0aeD33B422Ce98a5': {
+            name: 'Lock Tier',
+          },
+        },
+        icon: 'https://unlock-protocol.com/static/images/svg/unlock-word-mark.svg',
+        callToAction: {
+          default: 'Please Unlock your Tier content!',
+        },
+      };
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
