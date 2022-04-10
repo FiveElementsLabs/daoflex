@@ -1,7 +1,6 @@
 import { Box, Button, Link, Text, useColorModeValue } from '@chakra-ui/react';
-import LockButton from '../lock/LockButton';
 
-export default function Content({ dao }: { dao: any }) {
+export default function Leaderboard({ dao }: { dao: any }) {
   return (
     <Box
       px={4}
@@ -17,14 +16,13 @@ export default function Content({ dao }: { dao: any }) {
       cursor='pointer'
     >
       <Text fontSize='xl' fontWeight='bold'>
-        Content
+        Leaderboard
       </Text>
 
       <Link>
         <Button mt={6} rounded='3xl'>
           Join DAO to view
         </Button>
-        <LockButton />
       </Link>
     </Box>
   );

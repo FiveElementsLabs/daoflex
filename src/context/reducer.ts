@@ -11,6 +11,9 @@ export const initialState = {
   provider: null,
   network: null,
   eth_balance: null,
+  dao_list: null,
+  task_lists: [],
+  loading: false,
 };
 
 export const reducer = (state: typeof initialState, action: action) => {
@@ -33,6 +36,18 @@ export const reducer = (state: typeof initialState, action: action) => {
         provider: null,
         network: null,
         eth_balance: null,
+      };
+
+    case actions.SET_DAO_LIST:
+      return {
+        ...state,
+        dao_list: action.payload,
+      };
+
+    case actions.SET_TASK_LISTS:
+      return {
+        ...state,
+        task_lists: action.payload,
       };
 
     default:
