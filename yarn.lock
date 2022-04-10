@@ -3235,6 +3235,11 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
+"@unlock-protocol/unlock-js@^0.21.2":
+  version "0.21.2"
+  resolved "https://registry.yarnpkg.com/@unlock-protocol/unlock-js/-/unlock-js-0.21.2.tgz#afa71b580caeb1bc8f2b13ff58e106b4858bc813"
+  integrity sha512-IAyjeQWdSrEdDxINnzJC6jvP2v76Bk6yKfI3QTaU68lz6ubltCWgHgNfB3q1pGG/CvnNESnL7QvCoV37PpwVQQ==
+
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.11.1.tgz#2bfd767eae1a6996f432ff7e8d7fc75679c0b6a7"

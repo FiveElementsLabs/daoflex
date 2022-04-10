@@ -1,6 +1,6 @@
 import { Box, HStack } from '@chakra-ui/react';
-import Content from './Content';
-import Sidebar from './Sidebar';
+import Content from '../components/daopage/Content';
+import Sidebar from '../components/daopage/Sidebar';
 
 export default function DaoPage() {
   return (

@@ -6,7 +6,7 @@ import Layout from './components/layout/Layout';
 
 // These are all the pages that use the main Layout.
 import Home from './pages/Home';
-import DaoPage from './components/daopage/DaoPage';
+import DaoPage from './pages/DaoPage';
 
 export default function Router() {
   return (
