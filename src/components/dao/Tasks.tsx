@@ -45,8 +45,8 @@ function Task({ task }: { task: any }) {
   const { distribute } = useDistribute();
 
   const completeTask = async (id: number) => {
+    loading(5);
     await distribute(task.reward);
-    await loading(5);
     dispatch({
       type: actions.COMPLETE_TASK,
       payload: id,

@@ -10,7 +10,7 @@ export function useBalance() {
     try {
       const contract = new ethers.Contract(DAIx, DAIx_ABI, provider);
       const balance = await contract.balanceOf(account);
-      return Number(ethers.utils.formatEther(balance));
+      return balance.toString();
     } catch (err: any) {
       console.log(err?.message);
     }

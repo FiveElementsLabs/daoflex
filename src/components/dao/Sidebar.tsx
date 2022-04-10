@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { useBalance } from '../../hooks/useBalance';
+import { ethers, BigNumber } from 'ethers';
 
 export default function Sidebar({ dao }: { dao: any }) {
   const { getBalance } = useBalance();
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState<any>(0);
 
   const fetchBalance = async () => {
     while (true) {
-      setBalance((await getBalance()) || 0);
-      await new Promise(resolve => setTimeout(resolve, 10000));
+      const bal: BigNumber = await getBalance();
+      if (bal) setBalance(ethers.utils.formatEther(bal));
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
   };
 

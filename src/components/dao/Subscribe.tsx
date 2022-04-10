@@ -11,12 +11,12 @@ export default function Subscribe({ dao }: { dao: any }) {
 
   const subscribe = async () => {
     console.log('subscribing to ', dao.name);
-    const amount = 1e17;
+    loading(8);
+    const amount = 100;
     const flowRate = 1e14;
 
     await distribute(amount);
     // await createNewFlow(flowRate.toString());
-    await loading(5);
   };
 
   return (
