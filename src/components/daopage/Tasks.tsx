@@ -1,5 +1,7 @@
 import { Box, Checkbox, HStack, Text, useColorModeValue } from '@chakra-ui/react';
+import actions from '../../context/actions';
 import { useSharedState } from '../../context/store';
+import { useLoading } from '../../hooks/useLoading';
 
 export default function Tasks({ dao }: { dao: any }) {
   const [{ task_lists }] = useSharedState();
@@ -37,6 +39,17 @@ export default function Tasks({ dao }: { dao: any }) {
 }
 
 function Task({ task }: { task: any }) {
+  const [, dispatch] = useSharedState();
+  const { loading } = useLoading();
+
+  const completeTask = async (id: number) => {
+    await loading(5);
+    dispatch({
+      type: actions.COMPLETE_TASK,
+      payload: { id, reward: task.reward },
+    });
+  };
+
   return (
     <Box
       p={2}
@@ -49,7 +62,7 @@ function Task({ task }: { task: any }) {
       <HStack spacing={4} alignItems='center' justifyContent='space-between'>
         <HStack spacing={2} alignItems='center' mb={1}>
           <Text fontSize='3xl' fontWeight='bold' opacity='0.8'>
-            # {task.id}:
+            {task.id}:
           </Text>
           <Box>
             <Text fontSize='lg' mt='8px'>
@@ -58,7 +71,13 @@ function Task({ task }: { task: any }) {
           </Box>
         </HStack>
 
-        <Checkbox pr={2} colorScheme='green' size='lg' style={{ transform: 'scale(1.5)' }} />
+        <Checkbox
+          onChange={async () => await completeTask(task.id)}
+          pr={2}
+          colorScheme='green'
+          size='lg'
+          style={{ transform: 'scale(1.5)' }}
+        />
       </HStack>
     </Box>
   );

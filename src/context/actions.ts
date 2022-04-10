@@ -3,6 +3,8 @@ const actions = {
   LOGOUT_WALLET: 'LOGOUT_WALLET',
   SET_DAO_LIST: 'SET_DAO_LIST',
   SET_TASK_LISTS: 'SET_TASK_LISTS',
+  COMPLETE_TASK: 'COMPLETE_TASK',
+  SET_LOADING: 'SET_LOADING',
 };
 
 export default actions;

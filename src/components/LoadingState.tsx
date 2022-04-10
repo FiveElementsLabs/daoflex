@@ -7,7 +7,7 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-  AlertDialogCloseButton,
+  Box,
 } from '@chakra-ui/react';
 import { useSharedState } from '../context/store';
 
@@ -36,10 +36,10 @@ export default function LoadingState() {
 
         <AlertDialogContent>
           <AlertDialogHeader>Please Wait...</AlertDialogHeader>
-          <AlertDialogCloseButton />
           <AlertDialogBody>
-            Please hang tight while we move your funds all over the Internet!
-            <Spinner size='lg' />
+            <Box display='grid' placeContent='center' mb={6}>
+              <Spinner size='xl' />
+            </Box>
           </AlertDialogBody>
         </AlertDialogContent>
       </AlertDialog>

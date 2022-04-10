@@ -50,6 +50,20 @@ export const reducer = (state: typeof initialState, action: action) => {
         task_lists: action.payload,
       };
 
+    case actions.COMPLETE_TASK:
+      return {
+        ...state,
+        task_lists: state.task_lists.map((task_list: any) =>
+          task_list.filter((task: any) => task.id !== action.payload)
+        ),
+      };
+
+    case actions.SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
+      };
+
     default:
       return state;
   }
