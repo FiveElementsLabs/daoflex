@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Alert, AlertIcon, Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+
 import { Lock } from 'phosphor-react';
 
 export default function LockButton() {
@@ -18,14 +20,29 @@ export default function LockButton() {
   }, []);
 
   return (
-    <Button mt={6} rounded='3xl'>
+    <div>
       {locked === 'locked' && (
-        <Flex onClick={async () => await checkout()} cursor='pointer' alignItems='center'>
-          <Text mr={2}>Unlock Member-only content</Text>
-          <Lock size={22} />
-        </Flex>
+        <Button mt={6} rounded='3xl'>
+          <Flex onClick={async () => await checkout()} cursor='pointer' alignItems='center'>
+            <Text mr={2}>Unlock Member-only content</Text>
+            <Lock size={22} />
+          </Flex>
+        </Button>
       )}
-      {locked === 'unlocked' && <div>Unlocked!</div>}
-    </Button>
+      {locked === 'unlocked' && (
+        <>
+          <Alert status='success'>
+            <AlertIcon />
+            Your exclusive content. Super!
+          </Alert>
+          <Box w='100%' p={4}>
+            Check your eligibility and claim your $ENS airdrop. Call for Delegates post
+          </Box>
+          <Link to='https://claim.ens.domains'>
+            <Button>Airdrop Claim Site</Button>
+          </Link>
+        </>
+      )}
+    </div>
   );
 }

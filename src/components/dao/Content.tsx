@@ -17,8 +17,12 @@ export default function Content({ dao }: { dao: any }) {
       cursor='pointer'
     >
       <Text fontSize='xl' fontWeight='bold'>
-        Content
+        Help decide the future of ENS
       </Text>
+      <Text py={4}>
+        With the launch of $ENS and the DAO, the community will be empowered to govern the ENS protocol.
+      </Text>
+      <Text py={4}> To unlock $ENS make sure you have enough balance.</Text>
 
       <Link>
         <LockButton />
