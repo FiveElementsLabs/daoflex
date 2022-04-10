@@ -20,9 +20,11 @@ export default function DaoCard({ dao }: { dao: any }) {
         <Box display='grid' placeItems='center' w='full'>
           <Image src={dao.image} alt={dao.name} mb={4} w='100px' />
         </Box>
+
         <Text fontSize='xl' fontWeight='bold'>
           {dao.name}
         </Text>
+
         <Text fontSize='md' fontWeight='medium' mt={2} opacity='0.8'>
           {/* //TODO: better number mapping function */}
           {Math.floor(dao.members / 1000)}K members

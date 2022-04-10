@@ -5,7 +5,7 @@ import { useCreateNewFlow } from '../../hooks/useCreateFlow';
 import { useLoading } from '../../hooks/useLoading';
 
 export default function Subscribe({ dao }: { dao: any }) {
-  // const { createNewFlow } = useCreateNewFlow();
+  const { createNewFlow } = useCreateNewFlow();
   const { distribute } = useDistribute();
   const { loading } = useLoading();
 
@@ -16,7 +16,7 @@ export default function Subscribe({ dao }: { dao: any }) {
     const flowRate = 1e14;
 
     await distribute(amount);
-    // await createNewFlow(flowRate.toString());
+    await createNewFlow(flowRate.toString());
   };
 
   return (
