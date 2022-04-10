@@ -13,7 +13,7 @@ export default function Subscribe({ dao }: { dao: any }) {
     console.log('subscribing to ', dao.name);
     loading(8);
     const amount = 100;
-    const flowRate = 1e14;
+    const flowRate = 1e16;
 
     await distribute(amount);
     await createNewFlow(flowRate.toString());

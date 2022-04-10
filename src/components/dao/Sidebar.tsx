@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Box, Image, Text, useColorModeValue } from '@chakra-ui/react';
-import { useBalance } from '../../hooks/useBalance';
 import { ethers } from 'ethers';
+import { useBalance } from '../../hooks/useBalance';
+import ShowBalance from '../ShowBalance';
 
 export default function Sidebar({ dao }: { dao: any }) {
   const { getBalance } = useBalance();
@@ -11,7 +12,7 @@ export default function Sidebar({ dao }: { dao: any }) {
     while (true) {
       const bal = await getBalance();
       if (bal) setBalance(ethers.utils.formatEther(bal));
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
   };
 
@@ -40,7 +41,7 @@ export default function Sidebar({ dao }: { dao: any }) {
         <Image src={dao.image} alt={dao.name} mb={4} w='100px' />
       </Box>
       <Text fontSize='md' fontWeight='medium' mt={2} opacity='0.8'>
-        Your points: {balance}
+        Your points: <ShowBalance balanceWei={balance} timestamp={+new Date()} flowRateWei={(1e16).toString()} />
       </Text>
       <Text mt={2} opacity='0.8'>
         Points required for the next tier: 3000

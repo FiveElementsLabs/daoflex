@@ -7,7 +7,7 @@ export function useCreateNewFlow() {
 
   const signer = provider?.getSigner();
   // TODO: change to use multisig?
-  const recipient = '0x326BA6F8aCB954C476123dEf8B81B4c20063C97c';
+  const recipient = '0xc79C9cce7Fd3B10495e8866842DF64110759cC4d';
   const DAIx = '0x745861AeD1EEe363b4AaA5F1994Be40b1e05Ff90';
 
   // We send a stream from the user to the dev wallet
