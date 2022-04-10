@@ -3,7 +3,7 @@ const config = {
   appDescription: 'Boost your DAO with DAOflex',
   socials: {
     github: 'https://github.com/FiveElementsLabs/daoflex',
-    twitter: 'https://twitter.com/FiveElementsLabs',
+    twitter: 'https://twitter.com/5_Elements_Labs',
     discord: 'https://discord.gg/random',
   },
   web3: {
