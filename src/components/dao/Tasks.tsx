@@ -1,6 +1,7 @@
 import { Box, Checkbox, HStack, Text, useColorModeValue } from '@chakra-ui/react';
 import actions from '../../context/actions';
 import { useSharedState } from '../../context/store';
+import { useDistribute } from '../../hooks/useDistribute';
 import { useLoading } from '../../hooks/useLoading';
 
 export default function Tasks({ dao }: { dao: any }) {
@@ -41,12 +42,14 @@ export default function Tasks({ dao }: { dao: any }) {
 function Task({ task }: { task: any }) {
   const [, dispatch] = useSharedState();
   const { loading } = useLoading();
+  const { distribute } = useDistribute();
 
   const completeTask = async (id: number) => {
+    await distribute(task.reward);
     await loading(5);
     dispatch({
       type: actions.COMPLETE_TASK,
-      payload: { id, reward: task.reward },
+      payload: id,
     });
   };
 

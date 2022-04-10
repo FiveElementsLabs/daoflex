@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Box, HStack } from '@chakra-ui/react';
 import { useSharedState } from '../../context/store';
 
-import Hero from '../../components/daoPage/Hero';
-import DAOContent from '../../components/daoPage/Content';
-import Sidebar from '../../components/daoPage/Sidebar';
-import Menu from '../../components/daoPage/Menu';
+import Hero from '../../components/dao/Hero';
+import DAOContent from '../../components/dao/Content';
+import Sidebar from '../../components/dao/Sidebar';
+import Menu from '../../components/dao/Menu';
 
 export default function Content() {
   const { dao } = useParams();
