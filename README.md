@@ -1,6 +1,6 @@
 # DAOflex
 
-**DAOHacks Hackathon - March 18-30, 2022**
+**DAOHacks Hackathon - April 8-10, 2022**
 
 
 ### Description
