@@ -17,6 +17,7 @@
     "chai": "^4.3.6",
     "ethers": "^5.6.2",
     "framer-motion": "^4",
+    "graphql": "^16.3.0",
     "hardhat": "^2.9.3",
     "omit-deep": "^0.3.0",
     "phosphor-react": "^1.4.1",
