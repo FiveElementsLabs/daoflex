@@ -12,7 +12,8 @@ export default function Tasks({ dao }: { dao: any }) {
       {task_lists && (
         <Box
           px={4}
-          py={8}
+          pt={8}
+          pb={2}
           rounded='xl'
           shadow='sm'
           borderWidth='1px'
