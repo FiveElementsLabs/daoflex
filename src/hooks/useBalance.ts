@@ -16,7 +16,17 @@ export function useBalance() {
     }
   };
 
-  return { getBalance };
+  const getBalanceOf = async (acc: string) => {
+    try {
+      const contract = new ethers.Contract(DAIx, DAIx_ABI, provider);
+      const balance = await contract.balanceOf(acc);
+      return balance;
+    } catch (err: any) {
+      console.log(err?.message);
+    }
+  };
+
+  return { getBalance, getBalanceOf };
 }
 
 const DAIx_ABI = [
