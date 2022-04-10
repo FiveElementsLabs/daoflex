@@ -1,43 +1,31 @@
-import React, { useState } from 'react';
-import { Button } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { Button, Flex, Text } from '@chakra-ui/react';
+import { Lock } from 'phosphor-react';
 
 export default function LockButton() {
   const [locked, setLocked] = useState('locked');
-  /**
-   * Invoked to show the checkout modal provided by Unlock (optional... but convenient!)
-   */
-  function checkout() {
-    //@ts-ignore
-    window.unlockProtocol && window.unlockProtocol.loadCheckoutModal();
-    setLocked('unlocked');
+
+  async function checkout() {
+    (window as any).unlockProtocol && (window as any).unlockProtocol.loadCheckoutModal();
   }
 
-  function handleClick(e: any) {
-    e.preventDefault();
-    checkout();
+  const unlockHandler = (e: any) => setLocked(e.detail);
 
-    console.log(e);
-    setLocked(e.detail);
-  }
+  useEffect(() => {
+    window.addEventListener('unlockProtocol', unlockHandler);
+
+    return () => window.removeEventListener('unlockProtocol', unlockHandler);
+  }, []);
 
   return (
     <Button mt={6} rounded='3xl'>
       {locked === 'locked' && (
-        <div onClick={handleClick} style={{ cursor: 'pointer' }}>
-          Unlock me!{' '}
-          <span aria-label='locked' role='img'>
-            🔒
-          </span>
-        </div>
+        <Flex onClick={async () => await checkout()} cursor='pointer' alignItems='center'>
+          <Text mr={2}>Unlock Member-only content</Text>
+          <Lock size={22} />
+        </Flex>
       )}
-      {locked === 'unlocked' && (
-        <div>
-          Unlocked!{' '}
-          <span aria-label='unlocked' role='img'>
-            🗝
-          </span>
-        </div>
-      )}
+      {locked === 'unlocked' && <div>Unlocked!</div>}
     </Button>
   );
 }

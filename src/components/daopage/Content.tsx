@@ -1,4 +1,4 @@
-import { Box, Button, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import LockButton from '../lock/LockButton';
 
 export default function Content({ dao }: { dao: any }) {
@@ -21,9 +21,6 @@ export default function Content({ dao }: { dao: any }) {
       </Text>
 
       <Link>
-        <Button mt={6} rounded='3xl'>
-          Join DAO to view
-        </Button>
         <LockButton />
       </Link>
     </Box>
