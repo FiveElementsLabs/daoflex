@@ -24,6 +24,9 @@ export function useDistribute() {
       const amountFinal = ethers.utils.parseUnits(amount.toString(), 18);
       console.log('amount final: ', amountFinal);
 
+      const balance = await contract.balanceOf(signer.getAddress());
+      console.log('balance: ', balance);
+
       const tx = await contract.transfer(recipient, amountFinal);
       console.log('tx: ', tx);
     } catch (err: any) {

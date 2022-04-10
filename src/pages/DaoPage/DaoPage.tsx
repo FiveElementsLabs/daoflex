@@ -4,7 +4,7 @@ import { Box, HStack } from '@chakra-ui/react';
 import { useSharedState } from '../../context/store';
 
 import Hero from '../../components/dao/Hero';
-import Content from '../../components/dao/Content';
+import Subscribe from '../../components/dao/Subscribe';
 import Sidebar from '../../components/dao/Sidebar';
 import Menu from '../../components/dao/Menu';
 
@@ -29,7 +29,7 @@ export default function DaoPage() {
               <Sidebar dao={daoInfo} />
             </Box>
             <Box w='65%'>
-              <Content dao={daoInfo} />
+              <Subscribe dao={daoInfo} />
             </Box>
           </HStack>
         </>
