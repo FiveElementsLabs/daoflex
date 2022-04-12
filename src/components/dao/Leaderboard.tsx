@@ -8,25 +8,27 @@ export default function Leaderboard({ dao }: { dao: any }) {
   const { getBalanceOf } = useBalance();
   const [balances, setBalances] = useState<any>(['0', '0', '0', '0', '0']);
 
-  const fetchBalanceOf = async (accounts: string[]) => {
-    while (true) {
-      var new_bals = balances;
-      for (var i = 0; i < accounts.length; i++) {
-        const bal = await getBalanceOf(accounts[i]);
-        new_bals[i] = ethers.utils.formatEther(bal);
-      }
-      setBalances(new_bals);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-    }
-  };
-
   useEffect(() => {
+    const fetchBalanceOf = async (accounts: string[]) => {
+      while (true) {
+        var new_bals = balances;
+        for (var i = 0; i < accounts.length; i++) {
+          const bal = await getBalanceOf(accounts[i]);
+          new_bals[i] = ethers.utils.formatEther(bal);
+        }
+        setBalances(new_bals);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    };
+
+    console.log('Fetching balances');
+
     (async () => {
       await fetchBalanceOf(accounts);
     })();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accounts]);
+  }, []);
 
   return (
     <Box
